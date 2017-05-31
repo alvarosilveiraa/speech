@@ -11,9 +11,10 @@ class Speech {
   onload(exec) {
     let first = false;
     this._synthesis.onvoiceschanged = function() {
-      if(!first) {
+      let voices = this._synthesis.getVoices();
+      if(!first && voices && voices.length > 0) {
         first = true;
-        exec.call(this, this._synthesis.getVoices());
+        exec.call(this, voices);
       }
     }.bind(this);
   }

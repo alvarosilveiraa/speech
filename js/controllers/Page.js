@@ -10,7 +10,7 @@ class PageController {
       let option = document.createElement("option");
       option.value = i;
       option.textContent = `(${voice.lang}) ${voice.name}`;
-      if(voice.lang == "pt-BR") option.setAttribute("selected", "true");
+      if(/pt[-_ ]BR/.test(voice.lang)) option.setAttribute("selected", "true");
       this._select.appendChild(option);
     }
 
